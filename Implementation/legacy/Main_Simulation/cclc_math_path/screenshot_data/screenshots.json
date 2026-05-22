@@ -1,0 +1,166 @@
+{
+    "Version": "4.6.0",
+    "ScreenshotData": {
+        "Tumor_Snapshots": {
+            "Plot": {
+                "PlotType": "CellField",
+                "PlotName": "Cell_Field"
+            },
+            "Dimension": "2D",
+            "Projection": {
+                "ProjectionPlane": "XY",
+                "ProjectionPosition": 0
+            },
+            "CameraClippingRange": {
+                "Min": "0.1",
+                "Max": "1000.0"
+            },
+            "CameraFocalPoint": {
+                "x": "250.0",
+                "y": "150.0",
+                "z": "0.0"
+            },
+            "CameraPosition": {
+                "x": "250.0",
+                "y": "150.0",
+                "z": "700.0"
+            },
+            "CameraViewUp": {
+                "x": "0.0",
+                "y": "1.0",
+                "z": "0.0"
+            },
+            "Size": {
+                "Width": 2048,
+                "Height": 1228
+            },
+            "CellBorders": true,
+            "Cells": true,
+            "ClusterBorders": true,
+            "CellGlyphs": false,
+            "FPPLinks": false,
+            "BoundingBox": false,
+            "LatticeAxes": false,
+            "LatticeAxesLabels": false,
+            "TypesInvisible": [
+                0
+            ],
+            "CellShellOptimization": true,
+            "metadata": {
+                "BorderColor": [
+                    51,
+                    105,
+                    38,
+                    255
+                ],
+                "ClusterBorderColor": [
+                    53,
+                    111,
+                    42,
+                    255
+                ],
+                "BoundingBoxColor": [
+                    243,
+                    250,
+                    247,
+                    255
+                ],
+                "AxesColor": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "ContourColor": [
+                    5,
+                    0,
+                    244,
+                    255
+                ],
+                "WindowColor": [
+                    0,
+                    0,
+                    0,
+                    255
+                ],
+                "FPPLinksColor": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "ShowHorizontalAxesLabels": true,
+                "ShowVerticalAxesLabels": true,
+                "TypeColorMap": {
+                    "0": [
+                        0,
+                        0,
+                        0,
+                        255
+                    ],
+                    "1": [
+                        0,
+                        0,
+                        255,
+                        255
+                    ],
+                    "2": [
+                        72,
+                        152,
+                        69,
+                        255
+                    ],
+                    "3": [
+                        255,
+                        0,
+                        0,
+                        255
+                    ],
+                    "4": [
+                        255,
+                        255,
+                        0,
+                        255
+                    ],
+                    "5": [
+                        165,
+                        42,
+                        42,
+                        255
+                    ],
+                    "6": [
+                        173,
+                        216,
+                        230,
+                        255
+                    ],
+                    "7": [
+                        144,
+                        238,
+                        144,
+                        255
+                    ],
+                    "8": [
+                        128,
+                        0,
+                        128,
+                        255
+                    ],
+                    "9": [
+                        255,
+                        165,
+                        0,
+                        255
+                    ],
+                    "10": [
+                        64,
+                        224,
+                        208,
+                        255
+                    ]
+                }
+            },
+            "screenshotName": "Tumor_Snapshots"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "version": "4.0.0",
+    "parameter_list": {
+        "Jlf":{
+            "code":"np.arange(0,5,0.5)"
+        },
+        "mu":{
+            "code":"np.arange(0,30,3)"
+        },
+        "PP":{
+            "code":"np.arange(0,1,0.1)"
+        }
+    
+    }
+}

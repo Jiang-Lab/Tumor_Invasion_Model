@@ -1,0 +1,8 @@
+{
+    "version": "4.0.0",
+    "parameter_list": {
+        "fpp":{
+            "code":"np.linspace(0,1000, 101)"
+            }
+    }
+}

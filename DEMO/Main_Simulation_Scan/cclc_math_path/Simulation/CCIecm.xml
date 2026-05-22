@@ -1,0 +1,132 @@
+<CompuCell3D Revision="0" Version="4.3.1">
+   
+   <Metadata>
+      
+      <!-- Basic properties simulation -->
+      <NumberOfProcessors>4</NumberOfProcessors>
+      <DebugOutputFrequency>10</DebugOutputFrequency>
+      <!-- <NonParallelModule Name="Potts"/> -->
+   </Metadata>
+   
+   <Potts>
+      
+      <!-- Basic properties of CPM (GGH) algorithm -->
+      <Dimensions x="500" y="300" z="1"/>
+      <Steps>701</Steps> <!-- (701) <701,1401> Time frame of the simulation -->
+      <Temperature>10.0</Temperature>
+      <NeighborOrder>1</NeighborOrder>
+      <Boundary_x>Periodic</Boundary_x>
+      <!-- <Boundary_y>Periodic</Boundary_y> -->
+      <!--<RandomSeed>167475</RandomSeed>-->
+      
+      
+   </Potts>
+   <Plugin Name="NeighborTracker">
+   
+   <!-- Module tracking neighboring cells of each cell -->
+
+</Plugin>
+    <Plugin Name="Connectivity">
+        <Penalty>100000</Penalty>
+    </Plugin>
+    
+   <Plugin Name="CellType">
+      
+      <!-- Listing all cell types in the simulation -->
+      <CellType TypeId="0" TypeName="Medium"/>
+      <CellType TypeId="1" TypeName="LC"/>
+      <CellType TypeId="2" TypeName="FC"/>
+   </Plugin>
+   
+   <Plugin Name="Volume"/>
+   
+   <Plugin Name="Surface"/>
+   
+   <Plugin Name="CenterOfMass">
+      
+      <!-- Module tracking center of mass of each cell -->
+   </Plugin>
+   
+   <Plugin Name="Contact">
+      <!-- Specification of adhesion energies in order of least to greatest -->
+      <Energy Type1="Medium" Type2="Medium">0.0</Energy> <!--(0) leave this as is -->
+      <Energy Type1="Medium" Type2="LC">2.0</Energy> <!--(2) <0.1 to 5.0> The lower this value, the more freely the Leaders can move through the medium -->
+      <Energy Type1="LC" Type2="FC" id="J_LF">2.0</Energy><!-- (2) <0.1 to 5.0> This number is equal the above, so that followers stick to leaders as easily as Leaders move through the medium -->
+      <Energy Type1="FC" Type2="FC">5.0</Energy><!--(5) <2.1 to 10.0> How strong followers stick together, (lower=more sticky) -->
+      <Energy Type1="Medium" Type2="FC">10.0</Energy><!-- (10) <5.1 to 16.0> How easily followers move through the medium. There should be some resistance here -->
+      <Energy Type1="LC" Type2="LC">16.0</Energy><!-- (16) <2.1 to 20.0> How Leaders stick together. Leaders are more interested in Followers than each other, so should at least be higher than Lc=>FC Energy -->
+
+      <NeighborOrder>2</NeighborOrder>
+   </Plugin>
+   
+  <!--<Steppable Type="PIFInitializer">
+ <PIFName>ECM1.piff</PIFName>
+ </Steppable> -->
+   
+   <Plugin Name="Chemotaxis">
+      
+      <!-- You may repeat ChemicalField element for each chemical field declared in the PDE solvers -->
+      <!-- Specification of chemotaxis properties of select cell types. -->
+      <ChemicalField Name="MV">
+         <ChemotaxisByType Lambda="15" Type="LC" id="lambda_chem"/> <!-- (15) <1.0 to 30.0> This term determines how much the Leaders move toward the gradient field -->
+      </ChemicalField>
+   </Plugin>
+   
+   <Steppable Type="DiffusionSolverFE">
+      
+      <!-- Specification of PDE solvers -->
+      <DiffusionField Name="MV">
+         <DiffusionData>
+            <FieldName>MV</FieldName>
+            <GlobalDiffusionConstant>0.0</GlobalDiffusionConstant>
+            <GlobalDecayConstant>0</GlobalDecayConstant>
+            <!-- Additional options are: -->
+            <!-- <InitialConcentrationExpression>x*y</InitialConcentrationExpression> -->
+            <!-- <ConcentrationFileName>INITIAL CONCENTRATION FIELD - typically a file with path Simulation/NAME_OF_THE_FILE.txt</ConcentrationFileName> -->
+            <DiffusionCoefficient CellType="LC">0</DiffusionCoefficient>
+            <DiffusionCoefficient CellType="FC">0</DiffusionCoefficient>
+            <DecayCoefficient CellType="LC">0.000</DecayCoefficient>
+            <DecayCoefficient CellType="FC">0.000</DecayCoefficient>
+         </DiffusionData>
+         <SecretionData>
+            <!-- When secretion is defined inside DissufionSolverFE all secretion constants are scaled automaticaly to account for the extra calls to the diffusion step when handling large diffusion constants -->
+            
+            <!-- Uniform secretion Definition -->
+            <Secretion Type="LC">0.0</Secretion>
+            <Secretion Type="FC">0.0</Secretion>
+            <!-- <SecretionOnContact SecreteOnContactWith="LC,FC" Type="FC">0.2</SecretionOnContact> -->
+            <!-- <ConstantConcentration Type="FC">0.1</ConstantConcentration> -->
+         </SecretionData>
+         <BoundaryConditions>
+            <Plane Axis="X">
+               <ConstantValue PlanePosition="Min" Value="10.0"/>
+               <ConstantValue PlanePosition="Max" Value="5.0"/>
+               <!-- Other options are (examples): -->
+               <!-- <Periodic/> -->
+               <!-- <ConstantDerivative PlanePosition="Min" Value="10.0"/> -->
+            </Plane>
+            <Plane Axis="Y">
+               <ConstantDerivative PlanePosition="Min" Value="10.0"/>
+               <ConstantDerivative PlanePosition="Max" Value="5.0"/>
+               <!-- Other options are (examples): -->
+               <!-- <Periodic/> -->
+               <!-- <ConstantValue PlanePosition="Min" Value="10.0"/> -->
+            </Plane>
+         </BoundaryConditions>
+      </DiffusionField>
+      
+      
+   </Steppable>
+   
+   <Steppable Type="UniformInitializer">
+      
+      <!-- Initial layout of cells in the form of rectangular slab -->
+      <Region>
+         <BoxMin x="0" y="0" z="0"/>
+         <BoxMax x="500" y="21" z="1"/>
+         <Gap>0</Gap>
+         <Width>3</Width>
+         <Types>FC</Types>
+      </Region>
+   </Steppable>
+</CompuCell3D>

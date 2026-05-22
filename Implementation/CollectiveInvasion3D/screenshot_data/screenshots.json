@@ -1,0 +1,166 @@
+{
+    "Version": "4.6.0",
+    "ScreenshotData": {
+        "Cell_Field_CellField_3D_0___0001": {
+            "Plot": {
+                "PlotType": "CellField",
+                "PlotName": "Cell_Field"
+            },
+            "Dimension": "3D",
+            "Projection": {
+                "ProjectionPlane": null,
+                "ProjectionPosition": null
+            },
+            "CameraClippingRange": {
+                "Min": "243.14091635134162",
+                "Max": "688.4871494708376"
+            },
+            "CameraFocalPoint": {
+                "x": "99.75",
+                "y": "64.8556624352932",
+                "z": "0.0"
+            },
+            "CameraPosition": {
+                "x": "-170.31176011230622",
+                "y": "176.1784839316491",
+                "z": "357.8481959338595"
+            },
+            "CameraViewUp": {
+                "x": "0.1538615335828284",
+                "y": "0.9704690307410357",
+                "z": "-0.18578613741637112"
+            },
+            "Size": {
+                "Width": 1000,
+                "Height": 1000
+            },
+            "CellBorders": true,
+            "Cells": true,
+            "ClusterBorders": true,
+            "CellGlyphs": false,
+            "FPPLinks": false,
+            "BoundingBox": false,
+            "LatticeAxes": false,
+            "LatticeAxesLabels": false,
+            "TypesInvisible": [
+                0
+            ],
+            "CellShellOptimization": true,
+            "metadata": {
+                "BorderColor": [
+                    51,
+                    105,
+                    38,
+                    255
+                ],
+                "ClusterBorderColor": [
+                    53,
+                    111,
+                    42,
+                    255
+                ],
+                "BoundingBoxColor": [
+                    243,
+                    250,
+                    247,
+                    255
+                ],
+                "AxesColor": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "ContourColor": [
+                    5,
+                    0,
+                    244,
+                    255
+                ],
+                "WindowColor": [
+                    0,
+                    0,
+                    0,
+                    255
+                ],
+                "FPPLinksColor": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "ShowHorizontalAxesLabels": true,
+                "ShowVerticalAxesLabels": true,
+                "TypeColorMap": {
+                    "0": [
+                        0,
+                        0,
+                        0,
+                        255
+                    ],
+                    "1": [
+                        0,
+                        0,
+                        255,
+                        255
+                    ],
+                    "2": [
+                        72,
+                        152,
+                        69,
+                        255
+                    ],
+                    "3": [
+                        255,
+                        0,
+                        0,
+                        255
+                    ],
+                    "4": [
+                        255,
+                        255,
+                        0,
+                        255
+                    ],
+                    "5": [
+                        165,
+                        42,
+                        42,
+                        255
+                    ],
+                    "6": [
+                        173,
+                        216,
+                        230,
+                        255
+                    ],
+                    "7": [
+                        144,
+                        238,
+                        144,
+                        255
+                    ],
+                    "8": [
+                        128,
+                        0,
+                        128,
+                        255
+                    ],
+                    "9": [
+                        255,
+                        165,
+                        0,
+                        255
+                    ],
+                    "10": [
+                        64,
+                        224,
+                        208,
+                        255
+                    ]
+                }
+            },
+            "screenshotName": "Cell_Field_CellField_3D_0"
+        }
+    }
+}

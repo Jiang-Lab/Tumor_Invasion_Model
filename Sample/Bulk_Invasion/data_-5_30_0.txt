@@ -1,0 +1,19 @@
+Step: 700
+Tumor perimeter: 934.8522046710566
+Tumor complexity: 7.505289538210711
+Tumor endpoints(stalks): 150
+Tumor cells: 1550
+Invasive Area:6770.5
+Infiltrative Area:6770.5
+Single Defects: 0
+Detached Cells: 0
+Branches: 12
+Stalk LC: 381
+Average Height of Stalks: 9.931510383447288
+Variance in Height of Stalks: 64.13905094171464
+max_height: 34.769230769230774
+min_height: 36.391304347826086
+CLUSTER DATA:
+ Total Clusters: 0
+Cluster Composition:
+END

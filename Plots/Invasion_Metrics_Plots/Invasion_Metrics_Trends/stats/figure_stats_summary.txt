@@ -1,0 +1,51 @@
+CAPTION SUGGESTION:
+Data are represented as mean ± SEM. Per-point sample size (n) ranges are listed below for each metric. Per-bin comparisons among parameters were assessed by one-way ANOVA with Benjamini–Hochberg FDR correction across bins (Kruskal–Wallis fallback if ANOVA was not applicable). Spline smoothing (cubic) is used for visualization only; all statistics are computed on unsmoothed grouped values.
+
+Figure statistics & calculations summary
+Source file: ../../Results/Data/invasion_metrics.csv
+Normalization to [0,1] was applied independently per parameter using min/max from data.
+Parameters & normalization ranges (original scale):
+  - Proliferative Probability: min=0, max=1
+  - Contact Energy: min=-5, max=5
+  - Chemotaxis Lambda: min=0, max=30
+
+Mean ± SEM computation:
+  - For each unique normalized parameter value, observations of the metric
+    were aggregated: n = count, mean = average, SEM = std/sqrt(n) with ddof=1.
+  - Visualization uses cubic spline smoothing for the mean and SEM;
+    statistics reported in CSVs are computed on the unsmoothed groups.
+
+[AUDIT] Invasive Area vs Proliferative Probability (normalized: Proliferative Probability_norm) -> rows=11, max|SEM - std/sqrt(n)|=2.84217e-14, CSV=audit_invasive_area_by_Proliferative Probability_norm.csv
+[AUDIT] Invasive Area vs Contact Energy (normalized: Contact Energy_norm) -> rows=11, max|SEM - std/sqrt(n)|=2.84217e-14, CSV=audit_invasive_area_by_Contact Energy_norm.csv
+[AUDIT] Invasive Area vs Chemotaxis Lambda (normalized: Chemotaxis Lambda_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.77636e-15, CSV=audit_invasive_area_by_Chemotaxis Lambda_norm.csv
+[INFO] Invasive Area: n per point ranges from 1207 to 1210.
+[PVAL] Per-bin comparisons across PP/CE/MC saved to pvals_per_bin_invasive_area.csv.
+[FIG ] Saved plot: invasive_area.png
+
+[AUDIT] Infiltrative Area vs Proliferative Probability (normalized: Proliferative Probability_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.13687e-13, CSV=audit_infiltrative_area_by_Proliferative Probability_norm.csv
+[AUDIT] Infiltrative Area vs Contact Energy (normalized: Contact Energy_norm) -> rows=11, max|SEM - std/sqrt(n)|=5.68434e-14, CSV=audit_infiltrative_area_by_Contact Energy_norm.csv
+[AUDIT] Infiltrative Area vs Chemotaxis Lambda (normalized: Chemotaxis Lambda_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.13687e-13, CSV=audit_infiltrative_area_by_Chemotaxis Lambda_norm.csv
+[INFO] Infiltrative Area: n per point ranges from 1207 to 1210.
+[PVAL] Per-bin comparisons across PP/CE/MC saved to pvals_per_bin_infiltrative_area.csv.
+[FIG ] Saved plot: infiltrative_area.png
+
+[AUDIT] Singles vs Proliferative Probability (normalized: Proliferative Probability_norm) -> rows=11, max|SEM - std/sqrt(n)|=4.44089e-16, CSV=audit_singles_by_Proliferative Probability_norm.csv
+[AUDIT] Singles vs Contact Energy (normalized: Contact Energy_norm) -> rows=11, max|SEM - std/sqrt(n)|=4.44089e-16, CSV=audit_singles_by_Contact Energy_norm.csv
+[AUDIT] Singles vs Chemotaxis Lambda (normalized: Chemotaxis Lambda_norm) -> rows=11, max|SEM - std/sqrt(n)|=4.44089e-16, CSV=audit_singles_by_Chemotaxis Lambda_norm.csv
+[INFO] Singles: n per point ranges from 1207 to 1210.
+[PVAL] Per-bin comparisons across PP/CE/MC saved to pvals_per_bin_singles.csv.
+[FIG ] Saved plot: singles.png
+
+[AUDIT] Fingers vs Proliferative Probability (normalized: Proliferative Probability_norm) -> rows=11, max|SEM - std/sqrt(n)|=2.77556e-17, CSV=audit_fingers_by_Proliferative Probability_norm.csv
+[AUDIT] Fingers vs Contact Energy (normalized: Contact Energy_norm) -> rows=11, max|SEM - std/sqrt(n)|=2.77556e-17, CSV=audit_fingers_by_Contact Energy_norm.csv
+[AUDIT] Fingers vs Chemotaxis Lambda (normalized: Chemotaxis Lambda_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.38778e-17, CSV=audit_fingers_by_Chemotaxis Lambda_norm.csv
+[INFO] Fingers: n per point ranges from 1207 to 1210.
+[PVAL] Per-bin comparisons across PP/CE/MC saved to pvals_per_bin_fingers.csv.
+[FIG ] Saved plot: fingers.png
+
+[AUDIT] Clusters vs Proliferative Probability (normalized: Proliferative Probability_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.38778e-17, CSV=audit_clusters_by_Proliferative Probability_norm.csv
+[AUDIT] Clusters vs Contact Energy (normalized: Contact Energy_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.38778e-17, CSV=audit_clusters_by_Contact Energy_norm.csv
+[AUDIT] Clusters vs Chemotaxis Lambda (normalized: Chemotaxis Lambda_norm) -> rows=11, max|SEM - std/sqrt(n)|=1.38778e-17, CSV=audit_clusters_by_Chemotaxis Lambda_norm.csv
+[INFO] Clusters: n per point ranges from 1207 to 1210.
+[PVAL] Per-bin comparisons across PP/CE/MC saved to pvals_per_bin_clusters.csv.
+[FIG ] Saved plot: clusters.png

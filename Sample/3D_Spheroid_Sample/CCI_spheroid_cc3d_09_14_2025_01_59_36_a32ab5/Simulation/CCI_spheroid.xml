@@ -1,0 +1,175 @@
+<CompuCell3D Revision="2" Version="4.6.0">
+  <JSONScreenshots>screenshots.json</JSONScreenshots>
+
+  <Metadata>
+    <NumberOfProcessors>4</NumberOfProcessors>
+    <DebugOutputFrequency>10</DebugOutputFrequency>
+  </Metadata>
+
+  <Potts>
+    <Dimensions x="300" y="300" z="200"/>
+    <Steps>2001</Steps>
+    <Temperature>10.0</Temperature>
+    <NeighborOrder>3</NeighborOrder>
+    <Boundary_x>Periodic</Boundary_x>
+    <Boundary_y>Periodic</Boundary_y>
+    <!-- <Boundary_z>Fixed</Boundary_z> -->
+  </Potts>
+
+  <Plugin Name="NeighborTracker"/>
+
+  <Plugin Name="CellType">
+    <CellType TypeId="0" TypeName="Medium"/>
+    <CellType TypeId="1" TypeName="LC"/>
+    <CellType TypeId="2" TypeName="FC"/>
+  </Plugin>
+
+  <Plugin Name="Volume"/>
+  <Plugin Name="Surface"/>
+  <Plugin Name="CenterOfMass"/>
+
+  <Plugin Name="Contact">
+    <Energy Type1="Medium" Type2="Medium">0.0</Energy>
+    <Energy Type1="Medium" Type2="LC">2.0</Energy>
+    <Energy Type1="LC" Type2="FC" id="J_LF">2.0</Energy>
+    <Energy Type1="FC" Type2="FC">5.0</Energy>
+    <Energy Type1="Medium" Type2="FC">10.0</Energy>
+    <Energy Type1="LC" Type2="LC">16.0</Energy>
+    <NeighborOrder>3</NeighborOrder>
+  </Plugin>
+
+  <Plugin Name="Chemotaxis">
+    <ChemicalField Name="MV">
+      <ChemotaxisByType Lambda="15" Type="LC" id="lambda_chem"/>
+    </ChemicalField>
+  </Plugin>
+
+  <Steppable Type="DiffusionSolverFE">
+    <DiffusionField Name="MV">
+      <DiffusionData>
+        <FieldName>MV</FieldName>
+        <GlobalDiffusionConstant>0.0</GlobalDiffusionConstant>
+        <GlobalDecayConstant>0.0</GlobalDecayConstant>
+        <DiffusionCoefficient CellType="LC">0.0</DiffusionCoefficient>
+        <DiffusionCoefficient CellType="FC">0.0</DiffusionCoefficient>
+        <DecayCoefficient CellType="LC">0.000</DecayCoefficient>
+        <DecayCoefficient CellType="FC">0.000</DecayCoefficient>
+      </DiffusionData>
+      <SecretionData>
+        <Secretion Type="LC">0.0</Secretion>
+        <Secretion Type="FC">0.0</Secretion>
+      </SecretionData>
+    </DiffusionField>
+  </Steppable>
+
+  <!-- 3D blob initializer (spheroid) --> 
+
+
+  <Steppable Type="BlobInitializer">
+    <Region>
+      <Center x="150" y="150" z="90"/>
+      <Radius>45</Radius>
+      <Gap>0</Gap>
+      <Width>5</Width>
+      <Types>FC</Types>
+    </Region>
+  </Steppable>
+</CompuCell3D>
+
+
+
+<!-- <CompuCell3D Revision="2" Version="4.6.0"> -->
+  <!-- <JSONScreenshots>screenshots.json</JSONScreenshots> -->
+
+  <!-- <Metadata> -->
+    <!-- <NumberOfProcessors>4</NumberOfProcessors> -->
+    <!-- <DebugOutputFrequency>10</DebugOutputFrequency> -->
+  <!-- </Metadata> -->
+
+  <!-- <Potts> -->
+  
+    <!-- <Dimensions x="300" y="300" z="150"/> -->
+    <!-- <Steps>701</Steps> -->
+    <!-- <Temperature>10.0</Temperature> -->
+    <!-- <NeighborOrder>1</NeighborOrder> -->
+    <!-- <Boundary_x>Periodic</Boundary_x> -->
+    <!-- <Boundary_y>Periodic</Boundary_y> -->
+    <!-- &lt;!&ndash; <Boundary_z>Noflux</Boundary_z> &ndash;&gt;  -->
+
+
+    <!-- &lt;!&ndash; <RandomSeed>12345</RandomSeed> &ndash;&gt;  -->
+
+
+  <!-- </Potts> -->
+
+  <!-- <Plugin Name="NeighborTracker"/> -->
+  <!-- &lt;!&ndash; <Plugin Name="Connectivity"><Penalty>100000</Penalty></Plugin> &ndash;&gt;  -->
+
+
+
+  <!-- <Plugin Name="CellType"> -->
+    <!-- <CellType TypeId="0" TypeName="Medium"/> -->
+    <!-- <CellType TypeId="1" TypeName="LC"/> -->
+    <!-- <CellType TypeId="2" TypeName="FC"/> -->
+  <!-- </Plugin> -->
+
+  <!-- <Plugin Name="Volume"/> -->
+  <!-- <Plugin Name="Surface"/> -->
+  <!-- <Plugin Name="CenterOfMass"/> -->
+
+  
+    <!-- &lt;!&ndash; optional: gentle “pin to floor” against upward drift &ndash;&gt;  -->
+<!-- in Name="ExternalPotential"/> -->
+  
+  <!-- <Plugin Name="Contact"> -->
+    <!-- &lt;!&ndash; adhesion energies &ndash;&gt;  -->
+
+
+    <!-- <Energy Type1="Medium" Type2="Medium">0.0</Energy> -->
+    <!-- <Energy Type1="Medium" Type2="LC">2.0</Energy> -->
+    <!-- <Energy Type1="LC" Type2="FC" id="J_LF">2.0</Energy> -->
+    <!-- <Energy Type1="FC" Type2="FC">5.0</Energy> -->
+    <!-- <Energy Type1="Medium" Type2="FC">10.0</Energy> -->
+    <!-- <Energy Type1="LC" Type2="LC">16.0</Energy> -->
+    <!-- <NeighborOrder>2</NeighborOrder> -->
+  <!-- </Plugin> -->
+
+  <!-- <Plugin Name="Chemotaxis"> -->
+    <!-- <ChemicalField Name="MV"> -->
+      <!-- &lt;!&ndash; Leaders chemotax up the radial field &ndash;&gt;  -->
+
+
+      <!-- <ChemotaxisByType Lambda="15" Type="LC" id="lambda_chem"/> -->
+    <!-- </ChemicalField> -->
+  <!-- </Plugin> -->
+
+  <!-- <Steppable Type="DiffusionSolverFE"> -->
+    <!-- <DiffusionField Name="MV"> -->
+      <!-- <DiffusionData> -->
+        <!-- <FieldName>MV</FieldName> -->
+        <!-- <GlobalDiffusionConstant>0.0</GlobalDiffusionConstant> -->
+        <!-- <GlobalDecayConstant>0</GlobalDecayConstant> -->
+        <!-- <DiffusionCoefficient CellType="LC">0</DiffusionCoefficient> -->
+        <!-- <DiffusionCoefficient CellType="FC">0</DiffusionCoefficient> -->
+        <!-- <DecayCoefficient CellType="LC">0.0</DecayCoefficient> -->
+        <!-- <DecayCoefficient CellType="FC">0.0</DecayCoefficient> -->
+      <!-- </DiffusionData> -->
+      <!-- <SecretionData> -->
+        <!-- <Secretion Type="LC">0.0</Secretion> -->
+        <!-- <Secretion Type="FC">0.0</Secretion> -->
+      <!-- </SecretionData> -->
+      <!-- &lt;!&ndash; hard “dish” walls via no-flux; we compute MV directly in Python &ndash;&gt;  -->
+<!-- DiffusionField> -->
+  <!-- </Steppable> -->
+
+  <!-- 3D blob (spheroid) initializer -->
+  <!-- <Steppable Type="BlobInitializer"> -->
+    <!-- <Region> -->
+      <!-- <Center x="150" y="150" z="36"/> -->
+      <!-- <Radius>34</Radius> -->
+      <!-- <Gap>0</Gap> -->
+      <!-- <Width>4</Width> -->
+      <!-- <Types>FC</Types> -->
+    <!-- </Region> -->
+  <!-- </Steppable> -->
+<!-- </CompuCell3D> -->

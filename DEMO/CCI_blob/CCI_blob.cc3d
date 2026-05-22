@@ -1,0 +1,5 @@
+<Simulation version="4.6.0">
+   <XMLScript Type="XMLScript">Simulation/CCI_blob.xml</XMLScript>
+   <PythonScript Type="PythonScript">Simulation/CCI_blob.py</PythonScript>
+   <Resource Type="Python">Simulation/CCI_blobSteppables.py</Resource>
+</Simulation>

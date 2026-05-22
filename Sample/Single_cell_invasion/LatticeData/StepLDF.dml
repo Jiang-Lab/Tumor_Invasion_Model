@@ -1,0 +1,13 @@
+<CompuCell3DLatticeData Version="1.0">
+   <Dimensions x="500" y="300" z="1"/>
+   <Lattice Type="Square"/>
+   <Output CoreFileName="Step" Directory="/Users/sheriffakeeb/GSU Dropbox Dropbox/Sheriff Akeeb/CC3DWorkspace/cclc_cc3d_04_24_2025_09_37_38_7ef87b/LatticeData" Frequency="1" NumberOfSteps="701"/>
+   <CellType TypeId="0" TypeName="Medium"/>
+   <CellType TypeId="1" TypeName="LC"/>
+   <CellType TypeId="2" TypeName="FC"/>
+   <Fields>
+      <Field Name="Cell_Field" Type="CellField"/>
+      <Field Name="MV" Type="ConField"/>
+      <Field Name="myField" Type="ScalarFieldCellLevel"/>
+   </Fields>
+</CompuCell3DLatticeData>
